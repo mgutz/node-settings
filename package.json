@@ -1,0 +1,5 @@
+{ "name": "node-settings",
+  "version": "0.0.1",
+  "description": "Simple, hierarchical environment-based app settings",
+  "author": "Mario Gutierrez <mario@mgutz.com>"
+}
