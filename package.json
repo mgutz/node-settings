@@ -1,5 +1,6 @@
-{ "name": "node-settings",
+{ "name": "settings",
   "version": "0.0.1",
   "description": "Simple, hierarchical environment-based app settings",
-  "author": "Mario Gutierrez <mario@mgutz.com>"
+  "author": "Mario Gutierrez <mario@mgutz.com>",
+  "main": "./index.js"
 }
