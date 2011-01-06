@@ -2,5 +2,10 @@
   "version": "0.0.1",
   "description": "Simple, hierarchical environment-based app settings",
   "author": "Mario Gutierrez <mario@mgutz.com>",
-  "main": "./index.js"
+  "main": "./index.js",
+  "repository" : { 
+    "type" : "git",
+    "url" : "https://github.com/mgutz/node-settings" 
+  }
 }
+

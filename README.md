@@ -4,7 +4,7 @@ Simple, hierarchical environment-based app settings.
 
 ## Installation
 
-    npm install node-settings
+    npm install settings
 
 ## Usage 
 
