@@ -25,6 +25,22 @@ module.exports = {
     }).getEnvironment('development');
     return assert.equal('bar', $settings.foo);
   },
+  "issue 1 - global install not merged with common": function() {
+    var environments, settings;
+    environments = {
+      'common': {
+        foo: 'boo',
+        bah: 'baz'
+      },
+      'development': {
+        foo: 'bar'
+      }
+    };
+    settings = new Settings(environments, {
+      globalKey: '$settings'
+    }).getEnvironment('development');
+    return assert.equal('baz', $settings.bah);
+  },
   "should get specific environment": function() {
     var settings;
     settings = _settings.getEnvironment('development');

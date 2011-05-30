@@ -27,7 +27,6 @@ merger = require('../support/merger')
 # test.connectionString === 'mysql_test';
 #
 Settings = (pathOrModule, @options = {}) ->
-  self = this
 
   if typeof pathOrModule == 'string'
     @path = pathOrModule
@@ -36,8 +35,9 @@ Settings = (pathOrModule, @options = {}) ->
     @environments = pathOrModule
 
   if @options.globalKey?
-    global.__defineGetter__ @options.globalKey, ->
-      self.environments[self.env]
+    @_settings = @getEnvironment()
+    global.__defineGetter__ @options.globalKey, =>
+      @_settings
 
   this
 
@@ -51,10 +51,10 @@ Settings = (pathOrModule, @options = {}) ->
 #  1. Module's `forceEnv` property
 #  2. $NODE_ENV environment variable
 #  3. `common` environment
-# 
+#
 Settings.prototype.getEnvironment = (environ) ->
   @env = @environments.forceEnv || environ || process.env.NODE_ENV || 'common'
-  
+
   assert.ok @environments.common, 'Environment common not found in: ' + @path
   assert.ok @environments[@env], 'Environment `' + @env + '` not found in: ' + @path
 
@@ -64,9 +64,14 @@ Settings.prototype.getEnvironment = (environ) ->
     common = merger.clone(@environments.common)
 
   if @env == 'common'
-    common
+    result = common
   else
-    merger.extend common, @environments[@env]
+    result = merger.extend common, @environments[@env]
+
+  if @options.globalKey?
+    @_settings = result
+
+  result
 
 
 module.exports = Settings

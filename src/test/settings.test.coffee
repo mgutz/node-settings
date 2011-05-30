@@ -16,7 +16,18 @@ module.exports =
     settings = new Settings(environments, { globalKey: '$settings' }).getEnvironment('development')
     assert.equal 'bar', $settings.foo
 
-  
+  "issue 1 - global install not merged with common": ->
+    environments =
+      'common':
+        foo: 'boo'
+        bah: 'baz'
+      'development':
+        foo: 'bar'
+
+    settings = new Settings(environments, { globalKey: '$settings' }).getEnvironment('development')
+    assert.equal 'baz', $settings.bah
+
+
   "should get specific environment": ->
     settings = _settings.getEnvironment('development')
     assert.equal 'server_dev', settings.storage.database
