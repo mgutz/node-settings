@@ -154,5 +154,17 @@ module.exports = {
     };
     settings = new Settings(environments, options).getEnvironment('development');
     return assert.equal('app/views', settings.framework.views);
+  },
+  "should be overriden from file": function() {
+    var settings;
+    settings = _settings.getEnvironment('test');
+    assert.equal('server_test', settings.storage.database);
+    assert.equal('localhost', settings.storage.host);
+    settings.override(__dirname + "/config/override");
+    assert.equal('server_test', settings.storage.database);
+    assert.equal('override', settings.storage.host);
+    settings.override(__dirname + "/config/override2");
+    assert.equal('server_test', settings.storage.database);
+    return assert.equal('override2', settings.storage.host);
   }
 };

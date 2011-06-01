@@ -1,6 +1,6 @@
 { "name": "settings",
-  "version": "0.0.2",
-  "description": "Simple, hierarchical environment-based app settings",
+  "version": "0.0.3",
+  "description": "Simple environment-based application settings",
   "author": "Mario Gutierrez <mario@mgutz.com>",
   "main": "index",
   "repository" : "git://github.com/mgutz/node-settings"

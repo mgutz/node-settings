@@ -30,9 +30,8 @@ Settings = (pathOrModule, @options = {}) ->
 
   if typeof pathOrModule == 'string'
     @path = pathOrModule
-    @environments = require(pathOrModule)
-  else
-    @environments = pathOrModule
+
+  @environments = Settings.loadModule(pathOrModule)
 
   if @options.globalKey?
     @_settings = @getEnvironment()
@@ -71,7 +70,21 @@ Settings.prototype.getEnvironment = (environ) ->
   if @options.globalKey?
     @_settings = result
 
+  result.override = Settings.override
   result
+
+Settings.loadModule = (pathOrModule) ->
+  if typeof pathOrModule == 'string'
+    require(pathOrModule)
+  else
+    pathOrModule
+
+Settings.override = (pathOrModule) ->
+  mod = Settings.loadModule(pathOrModule)
+  if mod.common?
+    mod = new Settings(mod).getEnvironment()
+  merger.extend this, mod
+  this
 
 
 module.exports = Settings
