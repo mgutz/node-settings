@@ -5,6 +5,7 @@
 
 assert = require('assert')
 merger = require('../support/merger')
+coffee = require('coffee-script') # allows use of coffee for configs
 
 # TODO - add watcher on settings file
 
