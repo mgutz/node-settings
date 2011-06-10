@@ -8,12 +8,12 @@ GEN_JS = $(COFFEE:$(SRC_DIR)/%.coffee=$(BUILD_DIR)/%.js)
 
 .PHONY: all clean
 
-all: generate 
+all: generate
 
 generate: $(GEN_JS)
 
-test: generate
-	@expresso test/settings.test.js
+test: clean generate
+	@expresso test/*.test.js
 
 clean:
 	@rm -f $(GEN_JS)

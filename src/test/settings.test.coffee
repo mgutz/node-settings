@@ -5,7 +5,6 @@ _settings = new Settings(__dirname + '/config/environment')
 
 module.exports =
 
-
   "should be global installable using custom key": ->
     environments =
       'common':
@@ -32,7 +31,7 @@ module.exports =
     settings = _settings.getEnvironment('development')
     assert.equal 'server_dev', settings.storage.database
 
-    # default should be 'development'
+    # default should be 'common'
     settings = _settings.getEnvironment()
     assert.equal 'server_dev', settings.storage.database
 

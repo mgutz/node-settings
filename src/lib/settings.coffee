@@ -2,18 +2,22 @@
 # Copyright(c) 2010 Mario L Gutierrez <mario@mgutz.com>
 # MIT Licensed
 #
+# TODO - add watcher on settings file
 
 assert = require('assert')
 merger = require('../support/merger')
-coffee = require('coffee-script') # allows use of coffee for configs
 
-# TODO - add watcher on settings file
+# IF coffee is installed, also read configs written in CoffeeScript.
+try
+  # coffee extension is registered with node as a side-effect
+  require('coffee-script') # allows use of coffee for configs
+catch ex
+
 
 # Provides settings from an environment file or an object.
 #
 # The settings module must export, at a minimum, a `common` property.
-#
-# Other environments are deep merged into `common`.
+# Other environments are deep merged over `common`.
 #
 # @param {String | Object} pathOrModule The file to load or an object.
 #

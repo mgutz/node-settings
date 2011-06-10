@@ -3,8 +3,5 @@
   "description": "Simple environment-based application settings",
   "author": "Mario Gutierrez <mario@mgutz.com>",
   "main": "index",
-  "repository" : "git://github.com/mgutz/node-settings",
-  "dependencies": {
-    "coffee-script": ">=1.1.1"
-  }
+  "repository" : "git://github.com/mgutz/node-settings"
 }
