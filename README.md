@@ -18,22 +18,22 @@ Configuration file `config.js`
           user: 'qirogami_user',
           password: 'password'
         }
-      };
+      },
 
       // Rest of environments are deep merged over `common`.
 
-      development: {};
+      development: {},
       test: {
         storage: {
           database: 'server_test',
           password: 'foo'
         }
-      };
+      },
       production:  {
         storage: {
           password: 'secret'
         }
-      };
+      }
     };
 
 Application file `app.js`
@@ -53,7 +53,7 @@ The environment to use is based on (highest precedence first):
 1. `forceEnv` property in config file
 
         // config/environment.js
-        exports.forceEnv = 'production'
+        exports.forceEnv = 'production';
 
 2. `$NODE_ENV` environment variable
 
@@ -61,7 +61,7 @@ The environment to use is based on (highest precedence first):
 
 3. `env` option passed to constructor.
 
-        new Settings(file, {env: 'test'})
+        new Settings(file, {env: 'test'});
 
 
 ### Application Defaults
@@ -90,12 +90,12 @@ To compile and test
 
 `globalKey` option has been removed. Do this instead
 
-    global.APP = new Settings(file)
+    global.APP = new Settings(file);
 
 
 ## Credits
 
-jQuery library for `support/extend.js`
+jQuery library for `support/extend.js` from @FGRibreau
 
 
 ## License
