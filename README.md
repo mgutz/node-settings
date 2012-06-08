@@ -52,14 +52,16 @@ The environment to use is based on (highest precedence first):
 
 1. `forceEnv` property in config file
 
-    ## config/environment.js
-    exports.forceEnv = 'production'
+        // config/environment.js
+        exports.forceEnv = 'production'
 
 2. `$NODE_ENV` environment variable
 
-    NODE_ENV=production node app.js
+        NODE_ENV=production node app.js
 
-3. `env` option passed to constructor. `new Settings(file, {env: 'test'})`
+3. `env` option passed to constructor.
+
+        new Settings(file, {env: 'test'})
 
 
 ### Application Defaults
