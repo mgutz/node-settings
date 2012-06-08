@@ -2,8 +2,10 @@
 (function() {
 
   exports.common = {
-    storage: {
-      host: 'override2'
+    bar: {
+      storage: {
+        host: 'override2'
+      }
     }
   };
 

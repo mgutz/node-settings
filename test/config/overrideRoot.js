@@ -2,8 +2,10 @@
 (function() {
 
   module.exports = {
-    storage: {
-      host: 'override'
+    fubar: {
+      storage: {
+        host: 'override'
+      }
     }
   };
 

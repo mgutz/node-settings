@@ -1,0 +1,23 @@
+PATH=node-modules/mocha/bin:$PATH
+PATH=node-modules/coffee-script/bin:$PATH
+
+#. Run tests
+function test {
+    compile
+    mocha test/*Test.js
+}
+
+
+#. Compiles sources
+function compile {
+    invoke clean
+    coffee -c -o . src
+}
+
+
+#. Cleans output files
+function clean {
+    rm -rf test
+    rm -rf lib
+    rm index.js
+}

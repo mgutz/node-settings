@@ -18,3 +18,4 @@ pids
 logs
 result
 !.gitignore
+node_modules

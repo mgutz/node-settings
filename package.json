@@ -1,7 +1,11 @@
 { "name": "settings",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Simple environment-based application settings",
   "author": "Mario Gutierrez <mario@mgutz.com>",
-  "main": "index",
-  "repository" : "git://github.com/mgutz/node-settings"
+  "repository" : "git://github.com/mgutz/node-settings",
+  "devDependencies": {
+    "chai": "~1.0.4",
+    "coffee-script": "~1.3.3",
+    "mocha": "~1.1.0"
+  }
 }
