@@ -1,5 +1,4 @@
-PATH=node_modules/mocha/bin:$PATH
-PATH=node_modules/coffee-script/bin:$PATH
+PATH=node_modules/.bin:$PATH
 
 #. Run tests
 function test {
@@ -21,3 +20,5 @@ function clean {
     rm -rf lib
     rm index.js
 }
+
+# vim: set ft=SH :
