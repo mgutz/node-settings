@@ -1,5 +1,5 @@
-PATH=node-modules/mocha/bin:$PATH
-PATH=node-modules/coffee-script/bin:$PATH
+PATH=node_modules/mocha/bin:$PATH
+PATH=node_modules/coffee-script/bin:$PATH
 
 #. Run tests
 function test {
