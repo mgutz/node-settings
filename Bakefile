@@ -10,7 +10,7 @@ function test {
 #. Compiles sources
 function compile {
     invoke clean
-    coffee -c -o . src
+    coffee -cb -o . src
 }
 
 

@@ -1,18 +1,15 @@
 #
-# Copyright(c) 2010 Mario L Gutierrez <mario@mgutz.com>
+# Copyright(c) 2010-2013 Mario L Gutierrez <mario@mgutz.com>
 # MIT Licensed
 #
 
 assert = require('assert')
 Extend = require('../support/extend')
-
-try
-  coffee = require('coffee-script') # allows use of coffee for configs
-catch ex
-  null
+Path = require('path')
 
 loadModule = (pathOrModule) ->
   if typeof pathOrModule == 'string'
+    require('coffee-script') if Path.extname(pathOrModule) == '.coffee'
     mod = require(pathOrModule)
   else
     mod = pathOrModule
@@ -40,7 +37,6 @@ loadModule = (pathOrModule) ->
 # test.connectionString === 'mysql_test';
 #
 Settings = (pathOrModule, @options = {}) ->
-
   if typeof pathOrModule == 'string'
     @path = pathOrModule
 
